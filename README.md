@@ -1,2 +1,2 @@
 # LeetCode
-Solving DataStructure problems
+Solving Data Structure and Algorithm problems
