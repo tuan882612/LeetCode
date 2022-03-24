@@ -3,7 +3,7 @@ class Solution:
         hash = {}
         for i, n in enumerate(nums):
             q = target - n
-            if q not in hash:
-                hash[n] = i
+            if n not in hash:
+                hash[q] = i
             else:
-                return [hash[q], i]
+                return [hash[n], i]
