@@ -5,10 +5,10 @@ class Solution:
         for i in nums1:
             if i not in nums2:
                 temp.add(i)
-        res.append(list(temp))
+        res.append(temp)
         temp = set()
         for i in nums2:
             if i not in nums1:
                 temp.add(i)
-        res.append(list(temp))
+        res.append(temp)
         return res
