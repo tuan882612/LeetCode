@@ -1,7 +1,13 @@
 class Solution:
     def kWeakestRows(self, mat: List[List[int]], k: int) -> List[int]:
-        hash = {}
-        for i, v in enumerate(mat):
-            hash[i] = v.count(1)
-        arr = sorted(hash.items(), key = lambda x:x[1])[:k]
-        return [i[0] for i in arr]
+        minHeap=[]
+        ans=[]
+        heapq.heapify(minHeap)
+        for row in range(len(mat)):
+            soldiers=mat[row].count(1)
+            heapq.heappush(minHeap,(soldiers,row))
+        while k!=0:
+            val,row=heapq.heappop(minHeap)
+            ans.append(row)
+            k-=1
+        return ans
