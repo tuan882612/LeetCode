@@ -7,4 +7,4 @@ class Solution:
                 hash[s] = [i]
             else:
                 hash[s].append(i)
-        return list(hash.values())
+        return hash.values()
