@@ -2,9 +2,9 @@ class Solution:
     def groupAnagrams(self, str: List[str]) -> List[List[str]]:
         hash = {}
         for i in str:
-            q = "".join(sorted(i))
-            if q not in hash:
-                hash[q] = [i]
+            s = "".join(sorted(i))
+            if s not in hash:
+                hash[s] = [i]
             else:
-                hash[q].append(i)
-        return [i for i in hash.values()]
+                hash[s].append(i)
+        return list(hash.values())
