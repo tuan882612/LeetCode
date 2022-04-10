@@ -1,6 +1,7 @@
+from collections import deque
 class Solution:
     def calPoints(self, ops: List[str]) -> int:
-        stack = []
+        stack = deque()
         for i in ops:
             if i == 'C':
                 stack.pop()
