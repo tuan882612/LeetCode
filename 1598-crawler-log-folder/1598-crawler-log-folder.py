@@ -5,8 +5,6 @@ class Solution:
             if i == '../':
                 if stack:
                     stack.pop()
-            elif i == './':
-                continue
-            else:
+            elif i != './':
                 stack.append(i)
         return len(stack)
