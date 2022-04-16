@@ -6,5 +6,5 @@ class Solution:
                 hash[i] = 1
             else:
                 hash[i] += 1
-        hash = sorted(hash.items(), key = lambda x:x[1], reverse = True)
-        return [i[0] for i in hash[:k]]
+        hash = sorted(hash.items(), key = lambda x:x[1], reverse = True)[:k]
+        return [i[0] for i in hash]
