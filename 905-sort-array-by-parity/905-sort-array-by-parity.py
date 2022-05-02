@@ -9,6 +9,6 @@ class Solution:
             if i%2 != 0:
                 arr1.append(i)
                 
-        return arr+arr1
+        return arr + arr1
                 
         
