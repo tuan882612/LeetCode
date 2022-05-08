@@ -11,7 +11,6 @@ class Solution:
                 if number[j] == digit and j not in seen:
                     seen.add(j)
                     res = max(atoi("".join(number[:j] + number[j+1:])), res)
-                    break
 
         return str(res)
             
