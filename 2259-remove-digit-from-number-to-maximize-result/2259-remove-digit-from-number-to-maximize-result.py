@@ -1,10 +1,11 @@
 from locale import atoi
+
 class Solution:
     def removeDigit(self, number: str, digit: str) -> str:
         seen = set()
         res = 0
 
-        for _ in number:
+        for _ in range(number.count(digit)):
 
             for j in range(len(number)):
 
