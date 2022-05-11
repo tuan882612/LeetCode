@@ -7,20 +7,18 @@ class Solution:
             temp = num[i-3:i]
             
             for j in temp:
-                
                 if j not in hash:
                     hash[j] = 1
                 else:
                     hash[j] += 1
             
             if len(hash) == 1:
-                
                 if temp == None:
                     res.add('000')
-                
-                res.add(temp)
-            else:
-                hash = {}
+                else:
+                    res.add(temp)
+                    
+            hash = {}
         
         if len(res) >= 1:
             return max(res)
