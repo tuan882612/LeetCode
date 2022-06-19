@@ -1,18 +1,14 @@
 class Solution:
     def greatestLetter(self, s: str) -> str:
-        hash = {}
+        mx = 0
+        res = ""
         
         for i in s:
             
             if i.isupper() and i.lower() in s:
                 
-                if i.upper() not in hash:
-                    hash[i.upper()] = 1
-
-                else:
-                    hash[i.upper()] += 1
+                if ord(i) > mx:
+                    mx = ord(i)
+                    res = i
         
-        if len(hash) > 0:
-            return max(hash)
-        
-        return ""
+        return res
