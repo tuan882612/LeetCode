@@ -1,14 +1,18 @@
 class Solution:
     def nextGreatestLetter(self, letters: List[str], target: str) -> str:
-        hash = {}
+        if target >= letters[-1] or target < letters[0]:
+            return letters[0]
         
-        for i in letters:
+        left = 0
+        right = len(letters)-1
+        
+        while left <= right:
+            mid = left + (right-left)//2
             
-            if i > target:
-                if i not in hash:
-                    hash[ord(i)] = i
-                    
-        if len(hash) == 0:
-            return min(letters)
-        
-        return hash[min(hash.keys())]
+            if target >= letters[mid]:
+                left = mid + 1
+                
+            elif target < letters[mid]:
+                right = mid - 1
+                
+        return letters[left]
