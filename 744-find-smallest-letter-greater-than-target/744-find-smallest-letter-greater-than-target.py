@@ -7,6 +7,8 @@ class Solution:
             if i > target:
                 if i not in hash:
                     hash[ord(i)] = i
+                    
         if len(hash) == 0:
             return min(letters)
+        
         return hash[min(hash.keys())]
