@@ -9,19 +9,16 @@ class Solution:
             else:
                 hash[i] += 1
 
-        hash = dict(sorted(hash.items(), key = lambda x:x[1]))
+        track = []
 
-        if len(hash) != len(set(hash.values())):
-            track = []
+        for key, val in reversed(hash.items()):
 
-            for key, val in reversed(hash.items()):
+            if val in track:
 
-                if val in track:
+                while hash[key] in track and hash[key] != 0:
+                    hash[key] -= 1
+                    res += 1
 
-                    while hash[key] in track and hash[key] != 0:
-                        hash[key] -= 1
-                        res += 1
-
-                track.append(hash[key])
+            track.append(hash[key])
 
         return res
