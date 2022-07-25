@@ -7,9 +7,11 @@ class Solution:
             temp = []
             
             for prod in products:
-                if prod[:i] == searchWord[:i] and len(temp)<3:
+                if prod[:i] == searchWord[:i]: 
                     temp.append(prod)
                     
+                if len(temp)==3:
+                    break
             res.append(temp)
             
         return res
