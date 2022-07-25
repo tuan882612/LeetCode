@@ -1,20 +1,9 @@
 class Solution:
-    def suggestedProducts(self, products: List[str], searchWord: str) -> List[List[str]]:
-        products.sort()
-        pref = ""
-        res = []
-
-        for i in searchWord:
-            pref += i
-            temp = []
-
-            for j in products:
-                if len(temp)<3:
-                    if j[:len(pref)] == pref:
-                        temp.append(j)
-                else:
-                    break
-
-            res.append(temp)
-
+    def suggestedProducts(self, A: List[str], word: str) -> List[List[str]]:
+        A.sort()
+        res, prefix, i = [], '', 0
+        for c in word:
+            prefix += c
+            i = bisect.bisect_left(A, prefix, i)
+            res.append([w for w in A[i:i + 3] if w.startswith(prefix)])
         return res
