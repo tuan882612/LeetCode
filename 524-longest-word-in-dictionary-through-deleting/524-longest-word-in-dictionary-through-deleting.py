@@ -3,12 +3,8 @@ class Solution:
         arr = sorted(dictionary, key = lambda x:(-len(x),x))
         
         for word in arr:
-            count = 0
-            
-            for char in s:
-                if count < len(word) and word[count] == char:
-                    count += 1
+            it = iter(s)
                     
-            if count == len(word):
+            if all(x in it and x for x in word):
                 return word
         return ""
