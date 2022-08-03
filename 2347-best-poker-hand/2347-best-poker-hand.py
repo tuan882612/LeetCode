@@ -3,6 +3,7 @@ class Solution:
         if len(set(suits)) == 1:
             return "Flush"
         
+        num = 1
         hash = {}
         
         for i in ranks:
@@ -12,7 +13,7 @@ class Solution:
             else:
                 hash[i] += 1
             
-        num = max(hash.values())
+            num = max(num, hash[i])
         
         if num >= 3:
             return "Three of a Kind"
