@@ -1,33 +1,21 @@
 class Solution:
+    def findSum(self,n):
+        total=0
+        while n!=0:
+            total=total+(n%10)
+            n=n//10
+        return total
     def maximumSum(self, nums: List[int]) -> int:
-        hash = {}
-
-        for i in nums:
-            num = 0
-            temp = i
-
-            for _ in range(len(str(i))):
-                num += temp%10
-                temp = temp//10
-
-            if num not in hash:
-                hash[num] = [i]
+        maps={}
+        ans=-1
+        for n in nums:
+            key=self.findSum(n)
+            if key in maps:
+                maps[key].append(n)
             else:
-                hash[num].append(i)
-
-        res = -1
-
-        for val in hash:
-
-            if len(hash[val]) > 1:
-                arr = hash[val]
-                temp = max(arr)
-                tempI = arr.index(temp)
-                final = 0
-
-                for i in range(len(arr)):
-                    if i != tempI:
-                        final = max(arr[i]+temp, final)
-
-                res = max(res, final)
-        return res
+                maps[key]=[n]
+        for key in maps:
+            if len(maps[key])>=2:
+                maps[key].sort()
+                ans=max(ans,maps[key][-1]+maps[key][-2])
+        return ans
