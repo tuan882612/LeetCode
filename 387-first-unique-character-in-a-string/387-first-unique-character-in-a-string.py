@@ -3,7 +3,6 @@ class Solution:
         hash = {}
         
         for i, key in enumerate(s):
-            
             if key not in hash:
                 hash[key] = i
             else:
