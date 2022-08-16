@@ -10,9 +10,7 @@ class Solution:
         hash = dict(reversed(sorted(hash.items(), key = lambda x:x[1])))
         res = ""
         
-        for i in hash:
-            while hash[i] != 0:
-                res += i
-                hash[i] -= 1
+        for key, val in hash.items():
+            res += str(key*val)
                 
         return res
