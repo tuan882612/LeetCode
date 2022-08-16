@@ -7,10 +7,10 @@ class Solution:
                 hash[i] = 0
             hash[i] += 1
             
-        hash = dict(sorted(hash.items(), key=lambda x:x[1], reverse=True))
+        hash = sorted(hash.items(), key=lambda x:x[1], reverse=True)
         res = ""
         
-        for key, val in hash.items():
+        for key, val in hash:
             res += str(key*val)
                 
         return res
