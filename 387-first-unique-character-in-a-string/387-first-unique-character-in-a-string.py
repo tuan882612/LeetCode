@@ -5,12 +5,12 @@ class Solution:
         for i, key in enumerate(s):
             
             if key not in hash:
-                hash[key] = [i]
+                hash[key] = i
             else:
-                hash[key].append(i)
+                hash[key] = -1
                 
-        for i, key in hash.items():
-            if len(key) == 1:
-                return key[0]
-        
+        for i in hash.values():
+            if i != -1:
+                return i
+            
         return -1
