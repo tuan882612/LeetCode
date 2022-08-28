@@ -7,7 +7,7 @@ class Solution:
             '/': lambda y, x: int(operator.truediv(x, y))
         }
 
-    def evalRPN(self, tokens):
+    def evalRPN(self, tokens: list[str]) -> int:
         if not tokens:
             return 0
 
