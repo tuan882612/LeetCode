@@ -1,21 +1,18 @@
 class Solution:
-    def __init__(self):
-        self.operators = {
+    def evalRPN(self, tokens: list[str]) -> int:
+        if not tokens:
+            return 0
+        operators = {
             '+': lambda y, x: x + y,
             '-': lambda y, x: x - y,
             '*': lambda y, x: x * y,
             '/': lambda y, x: int(operator.truediv(x, y))
         }
-
-    def evalRPN(self, tokens: list[str]) -> int:
-        if not tokens:
-            return 0
-
         stack = []
 
         for token in tokens:
-            if token in self.operators:
-                stack.append(self.operators[token](stack.pop(), stack.pop()))
+            if token in operators:
+                stack.append(operators[token](stack.pop(), stack.pop()))
             else:
                 stack.append(int(token))
 
