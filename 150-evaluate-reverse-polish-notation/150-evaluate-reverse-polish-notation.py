@@ -1,20 +1,22 @@
 class Solution:
-    def evalRPN(self, tokens: List[str]) -> int:
+    def __init__(self):
+        self.operators = {
+            '+': lambda y, x: x + y,
+            '-': lambda y, x: x - y,
+            '*': lambda y, x: x * y,
+            '/': lambda y, x: int(operator.truediv(x, y))
+        }
+
+    def evalRPN(self, tokens):
+        if not tokens:
+            return 0
+
         stack = []
-        
-        for i in tokens:
-            if i not in "-+/*":
-                stack.append(int(i))
+
+        for token in tokens:
+            if token in self.operators:
+                stack.append(self.operators[token](stack.pop(), stack.pop()))
             else:
-                right, left = stack.pop(), stack.pop()
-                
-                match i:
-                    case '+':
-                        stack.append(left+right)
-                    case '-':
-                        stack.append(left-right)
-                    case '*':
-                        stack.append(left*right)
-                    case '/':
-                        stack.append(int(operator.truediv(left,right))) 
-        return stack.pop()
+                stack.append(int(token))
+
+        return stack[0]
