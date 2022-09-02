@@ -11,14 +11,17 @@ class Solution:
         queue.append(root)
 
         while queue:
+            length = len(queue)
             temp = []
 
-            for _ in range(len(queue)):
+            while length > 0:
                 node = queue.pop(0)
                 temp.append(node.val)
                 
                 if node.left: queue.append(node.left)
                 if node.right: queue.append(node.right)
+
+                length-=1
 
             res.append(sum(temp)/len(temp))
 
