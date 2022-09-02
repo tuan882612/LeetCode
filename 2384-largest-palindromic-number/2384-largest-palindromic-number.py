@@ -24,6 +24,7 @@ class Solution:
                 res.append(k)
                 res.appendleft(k)
                 hash[k] -= 2
+                
         res = "".join(res).strip('0')
         if len(res) == 0: return '0'
         return res
