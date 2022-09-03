@@ -1,12 +1,14 @@
 class Solution:
     def arrayChange(self, nums: List[int], op: List[List[int]]) -> List[int]:
-        hash = {}
-        
-        for x, y in reversed(op):
-            hash[x] = hash.get(y, y)
-
+        hash = {} 
         for i, v in enumerate(nums):
-            if v in hash:
-                nums[i] = hash[v]
-                
+            hash[v] = i
+        
+        for x, y in op:
+            index = hash[x]
+            nums[index] = y
+            
+            del hash[x]
+            hash[y] = index
+            
         return nums
