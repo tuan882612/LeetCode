@@ -3,6 +3,9 @@ class Solution:
         hash = set()
         
         for i in range(1, len(nums)):
-            hash.add(nums[i-1]+nums[i])
+            sm = nums[i-1]+nums[i]
+            
+            if sm in hash: return True
+            hash.add(sm)
         
-        return False if len(hash) == len(nums)-1 else True
+        return False
