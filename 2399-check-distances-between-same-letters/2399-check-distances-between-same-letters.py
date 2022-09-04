@@ -1,9 +1,9 @@
 class Solution:
-    def checkDistances(self, s: str, dist: List[int]) -> bool:
+    def checkDistances(self, s: str, distance: List[int]) -> bool:
         ref = {}
         
         for i in range(26):
-            ref[chr(97+i)] = dist[i]
+            ref[chr(97+i)] = distance[i]
             
         hash = {}
         
