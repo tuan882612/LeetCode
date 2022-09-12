@@ -1,12 +1,11 @@
 class Solution:
     def intersection(self, nums: List[List[int]]) -> List[int]:
-        res=[]
-        arr=[]
-        n=len(nums)
-        for num in nums:
-            arr.extend(num)
-        count=Counter(arr)
-        for i in count:
-            if(count[i]==n):
-                res.append(i)
-        return sorted(res) if res else res
+        hash = {}
+        
+        for row in nums:
+            for i in set(row):
+                if i not in hash:
+                    hash[i] = 0
+                hash[i] += 1
+            
+        return sorted([k for k, v in hash.items() if v == len(nums)])
