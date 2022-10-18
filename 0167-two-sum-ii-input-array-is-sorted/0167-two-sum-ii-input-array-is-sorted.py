@@ -7,9 +7,9 @@ class Solution:
             
             if val == target:
                 return [left+1, right+1]
-            elif val > target:
-                right -= 1
-            else:
+            elif val < target:
                 left += 1
+            else:
+                right -= 1
                 
         return []
