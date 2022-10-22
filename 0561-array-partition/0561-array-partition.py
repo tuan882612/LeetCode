@@ -6,7 +6,7 @@ class Solution:
         res = 0
         temp = []
         
-        for _ in range(len(nums)):
+        while nums:
             n = heapq.heappop(nums)
             temp.append(n)
             
