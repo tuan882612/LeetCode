@@ -7,10 +7,11 @@ class Solution:
         temp = []
         
         for _ in range(len(nums)):
-            temp.append(heapq.heappop(nums))
+            n = heapq.heappop(nums)
+            temp.append(n)
             
             if len(temp) > 1:
                 res += min(temp)
-                temp.clear()
+                temp = []
             
         return res
