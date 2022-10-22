@@ -1,14 +1,16 @@
+import heapq
+
 class Solution:
     def arrayPairSum(self, nums: List[int]) -> int:
-        nums.sort()
+        heapq.heapify(nums)
         res = 0
         temp = []
         
-        for i in nums:
-            temp.append(i)
+        for _ in range(len(nums)):
+            temp.append(heapq.heappop(nums))
             
             if len(temp) > 1:
                 res += min(temp)
                 temp = []
-
+            
         return res
