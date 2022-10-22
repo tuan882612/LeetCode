@@ -11,6 +11,6 @@ class Solution:
             
             if len(temp) > 1:
                 res += min(temp)
-                temp = []
+                temp.clear()
             
         return res
