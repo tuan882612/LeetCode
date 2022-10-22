@@ -8,5 +8,5 @@ class Solution:
 
         for i in range(k, len(nums)):
             res = min(res, nums[i] - nums[i-k + 1])
-            print(nums[i] - nums[i - k + 1])
+
         return res
