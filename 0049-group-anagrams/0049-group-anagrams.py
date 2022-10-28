@@ -1,11 +1,12 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        if len(strs) == 1:
-            return [strs]
-        
-        hash = collections.defaultdict(list)
+        hash = {}
         
         for i in strs:
-            hash[''.join(sorted(i))].append(i)
-            
+            temp = "".join(sorted(i))
+            if temp not in hash:
+                hash[temp] = [i]
+            else:
+                hash[temp].append(i)
+                
         return hash.values()
