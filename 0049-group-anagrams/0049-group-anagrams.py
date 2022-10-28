@@ -1,12 +1,8 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        hash = {}
+        hash = collections.defaultdict(list)
         
         for i in strs:
-            temp = "".join(sorted(i))
-            if temp not in hash:
-                hash[temp] = [i]
-            else:
-                hash[temp].append(i)
-                
+            hash[frozenset(collections.Counter(i).items())].append(i)
+        
         return hash.values()
