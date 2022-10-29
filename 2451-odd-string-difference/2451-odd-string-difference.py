@@ -3,12 +3,12 @@ class Solution:
         res = {}
         
         for word in words:
-            arr = tuple(ord(word[i])-ord(word[i-1]) for i in range(1, len(word)))
+            tup = tuple(ord(word[i])-ord(word[i-1]) for i in range(1, len(word)))
             
-            if arr not in res:
-                res[arr] = [word]
+            if tup not in res:
+                res[tup] = [word]
             else:
-                res[arr].append(word)
+                res[tup].append(word)
                 
         for arr, word in res.items():
             if len(word) == 1:
