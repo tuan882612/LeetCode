@@ -8,6 +8,4 @@ class Solution:
                 res += i
                 count += 1
                 
-        if count == 0:
-            return 0
-        return res//count
+        return count and res//count
