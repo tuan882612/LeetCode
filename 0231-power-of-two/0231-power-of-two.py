@@ -1,11 +1,3 @@
 class Solution:
     def isPowerOfTwo(self, n: int) -> bool:
-        if n == 0:
-            return False
-        
-        for i in range(31):
-            temp = 2**i
-            if n == temp:
-                return True
-            
-        return False
+        return n > 0 and (1 << 31) % n == 0
