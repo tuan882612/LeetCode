@@ -5,15 +5,9 @@ class Solution:
         
         for i in nums:
             pre += i
-            post += self.func(i)
+            
+            while i > 0:
+                post += i%10
+                i = i//10
 
         return pre-post
-
-    def func(self, num: int) -> int:
-        n = list(str(num))
-        sm = 0
-
-        for i in n:
-            sm += int(i)
-
-        return sm
