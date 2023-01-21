@@ -1,7 +1,6 @@
 class Solution:
     def differenceOfSum(self, nums: List[int]) -> int:
-        pre = 0
-        post = 0
+        pre = post = 0
         
         for i in nums:
             pre += i
