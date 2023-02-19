@@ -4,8 +4,8 @@ func twoSum(nums []int, target int) []int {
     for i, val := range nums {
         num := target-val
         
-        if _, found := hash[num]; found {
-            return []int{hash[num], i}
+        if x, found := hash[num]; found {
+            return []int{x, i}
         } else {
             hash[val] = i
         }
