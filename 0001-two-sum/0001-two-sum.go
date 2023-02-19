@@ -1,5 +1,5 @@
 func twoSum(nums []int, target int) []int {
-    hash := map[int]int{}
+    hash := make(map[int]int)
     
     for i, val := range nums {
         num := target-val
