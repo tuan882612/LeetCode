@@ -2,8 +2,8 @@ class Solution:
     def vowelStrings(self, words: List[str], left: int, right: int) -> int:
         res = 0
         
-        for word in words[left:right+1]:
-            if self.validate(word):
+        for i in range(left, right + 1):
+            if self.validate(words[i]):
                 res += 1
             
         return res
