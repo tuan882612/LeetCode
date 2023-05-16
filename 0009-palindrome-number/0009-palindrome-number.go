@@ -1,16 +1,13 @@
 import "strconv"
 
 func isPalindrome(x int) bool {
-    s := strconv.Itoa(x)
-    left, right := 0, len(s)-1
+    text := strconv.Itoa(x)
+    l := len(text)
     
-    for left < right {
-        if s[left] != s[right] {
+    for i, j := 0, l - 1; i < j; i, j = i + 1, j - 1 {
+        if text[i] != text[j] {
             return false
         }
-        left++
-        right--
     }
-    
     return true
 }
