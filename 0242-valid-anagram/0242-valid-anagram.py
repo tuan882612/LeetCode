@@ -5,10 +5,10 @@ class Solution:
         if len(s) != len(t):
             return False
         
-        ht1, ht2 = Counter(s), Counter(t)
+        ref = set(s)
         
-        for k, v in ht1.items():
-            if v != ht2[k]:
+        for i in ref:
+            if s.count(i) != t.count(i):
                 return False
             
         return True
