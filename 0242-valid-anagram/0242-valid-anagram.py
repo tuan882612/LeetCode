@@ -1,12 +1,18 @@
+from collections import Counter
+
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        if len(s) != len(t):
-            return False
+        ref = Counter(s)
         
-        ref = set(s)
-        
-        for i in ref:
-            if s.count(i) != t.count(i):
+        for i in t:
+            if i not in ref:
                 return False
+            else:
+                ref[i] -= 1
+                if ref[i] < 0:
+                    return False
+                
+        if sum(ref.values()) > 0:
+            return False
             
         return True
