@@ -1,6 +1,5 @@
 class Solution:
     def simplifyPath(self, path: str) -> str:
-        dirs = path.split('/')
         res = []
         
         for dir in path.split('/'):
