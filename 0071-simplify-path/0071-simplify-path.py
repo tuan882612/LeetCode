@@ -3,10 +3,10 @@ class Solution:
         dirs = path.split('/')
         res = []
         
-        for dir in dirs:
-            if dir not in '../ ':
+        for dir in path.split('/'):
+            if dir not in '../':
                 res.append(dir)
             elif dir == '..' and res:
                 res.pop()
                 
-        return '/'+'/'.join(res)
+        return '/' + '/'.join(res)
