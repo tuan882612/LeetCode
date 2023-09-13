@@ -15,17 +15,18 @@ class Solution:
         }
 
         visited = []
-        stack = [(0,"")]
-        
-        while stack:
-            i, cur = stack.pop()
-            
+        stack = []
+
+        def dfs(i):
             if i == len(digits):
-                visited.append(cur)
+                visited.append("".join(stack))
             else:
+                print(visited, stack)
                 for l in graph[digits[i]]:
-                    stack.append((i+1, cur + l))
-        
+                    stack.append(l)
+                    dfs(i+1)
+                    stack.pop()
+
+        dfs(0)
         return visited
-        
         
