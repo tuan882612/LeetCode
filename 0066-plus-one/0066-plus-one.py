@@ -4,15 +4,15 @@ class Solution:
         if digits[-1] < 10:
             return digits
         
-        digits = digits[::-1]
-        for i in range(1, len(digits)):
-            if digits[i-1] > 9:
-                digits[i-1] = 0
-                digits[i] += 1
+        dq = deque(digits)
 
-            
-        if digits[-1] > 9:
-            digits[-1] = 0
-            digits.append(1)
-        
-        return digits[::-1]
+        for i in range(len(dq)-2, -1, -1):
+            if dq[i+1] > 9:
+                dq[i] += 1
+                dq[i+1] = 0
+
+        if dq[0] > 9:
+            dq[0] = 0
+            dq.appendleft(1)
+
+        return dq
