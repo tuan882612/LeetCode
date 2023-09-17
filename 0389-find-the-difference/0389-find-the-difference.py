@@ -3,8 +3,8 @@ class Solution:
         ht = Counter(s)
         htR = Counter(t)
 
-        for k, v in htR.items():
-            if ht[k] != v:
-                return k
+        for i in t:
+            if ht[i] != htR[i]:
+                return i
 
         return ""
