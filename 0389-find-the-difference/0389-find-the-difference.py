@@ -1,17 +1,13 @@
-from collections import Counter
-
 class Solution:
     def findTheDifference(self, s: str, t: str) -> str:
-        first = Counter(s)
-        second = Counter(t)
-        
-        for i in second:
-            if i not in first:
+        ht = Counter(s)
+        htR = Counter(t)
+
+        for i in t:
+            if i not in ht:
                 return i
             
-            if second[i] > first[i]:
+            if ht[i] != htR[i]:
                 return i
-            
+
         return ""
-        
-        
