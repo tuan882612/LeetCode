@@ -1,12 +1,11 @@
 class Solution:
     def mergeAlternately(self, word1: str, word2: str) -> str:
-        res = ""
-        for l1, l2 in zip_longest(word1, word2):
-            if l1 and l2:
-                res = "".join(res + l1 + l2)
-            elif not l1:
-                res = "".join(res + l2)
-            else:
-                res = "".join(res + l1)
+        new_word = ""
+        for i in range(0, min(len(word1), len(word2))):
+            new_word += word1[i]
+            new_word += word2[i]
 
-        return res
+        new_word += word1[i+1:]
+        new_word += word2[i+1:]
+
+        return new_word
