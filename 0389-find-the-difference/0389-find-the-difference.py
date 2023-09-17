@@ -1,10 +1,8 @@
 class Solution:
     def findTheDifference(self, s: str, t: str) -> str:
-        ht = Counter(s)
-        htR = Counter(t)
-
+        ans = 0
+        for i in s:
+            ans ^= ord(i)
         for i in t:
-            if ht[i] != htR[i]:
-                return i
-
-        return ""
+            ans ^= ord(i)
+        return chr(ans)
