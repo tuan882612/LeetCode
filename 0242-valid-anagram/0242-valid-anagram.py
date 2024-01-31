@@ -1,6 +1,6 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        ount = [0] * 26
+        count = [0] * 26
         
         # Count the frequency of characters in string s
         for x in s:
