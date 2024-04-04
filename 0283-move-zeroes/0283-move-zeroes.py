@@ -3,15 +3,9 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        n = len(nums)
-        if n == 1:
-            return nums
-        
-        l = 0
-        for r in range(n):
-            if nums[r] != 0:
-                if nums[l] == 0:
-                    nums[r], nums[l] = nums[l], nums[r]
+        start = 0
 
-                if nums[l] != 0:
-                    l += 1
+        for end in range(len(nums)):
+            if nums[end] != 0:
+                nums[end], nums[start] = nums[start], nums[end]
+                start += 1
