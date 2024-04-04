@@ -1,26 +1,13 @@
 class Solution:
     def mergeAlternately(self, word1: str, word2: str) -> str:
-        if not word1:
-            return word2
-        if not word2:
-            return word1
-
         res = ""
-        if len(word1) <= len(word2):
-            shortest = word1
-            longest = word2
-            shortest_len = len(word1)
-            diff = abs(len(word2) - len(word1))
-
-        else:
-            shortest= word2
-            longest = word1
-            shortest_len = len(word2)
-            diff = abs(len(word2)- len(word1))
-
-
-        for i in range(shortest_len):
-            res += word1[i]
-            res += word2[i]
-
-        return res + longest[shortest_len: shortest_len + diff]
+        i1 = i2 = 0
+        n1, n2 = len(word1), len(word2)
+        while i1 < n1 or i2 < n2:
+            if i1 < n1:
+                res += word1[i1]
+                i1 += 1
+            if i2 < n2:
+                res += word2[i2]
+                i2 += 1
+        return res
