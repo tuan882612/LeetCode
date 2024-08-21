@@ -1,19 +1,28 @@
 class Solution:
     def lemonadeChange(self, bills: List[int]) -> bool:
-        five = ten = 0
+        res = 0
+        n5 = n10 = 0
         
-        for i in bills:
-            if i == 5: 
-                five += 1
-            elif i == 10: 
-                five -= 1
-                ten += 1
-            elif ten > 0: 
-                five -= 1
-                ten -= 1
-            else: 
-                five -= 3
-                
-            if five < 0: 
-                return False
+        for b in bills:
+            if b == 10:
+                if n5 > 0:
+                    n10 += 1
+                    n5 -= 1
+                    res += b - 5
+                else:
+                    return False
+            elif b == 20:
+                if n10 > 0 and n5 > 0:
+                    n10 -= 1
+                    n5 -= 1
+                    res += b - 15
+                elif n5 > 2:
+                    n5 -= 3
+                    res += b - 15
+                else:
+                    return False
+            else:
+                n5 += 1
+                res += 5
+
         return True
