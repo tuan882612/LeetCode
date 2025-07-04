@@ -1,12 +1,12 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
+        if not nums:
+            return []
+
         table = {}
-
         for i, v in enumerate(nums):
-            num = target - v
-            if num not in table:
-                table[v] = i
+            n = target - v
+            if n not in table:
+                table[v] = i 
             else:
-                return [table[num], i]
-
-        return []
+                return [i, table[n]]
